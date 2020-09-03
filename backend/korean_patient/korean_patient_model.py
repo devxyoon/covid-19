@@ -10,7 +10,7 @@ class KoreanPatientModel:
                                 'serviceKey=fzXpNfK7ET%2BeoMdDcL%2FpjXUdnRVz2opP7AVswDFG7w3n2FKDY8%2BjoBEhaCL3oYEsxhXqBU2bymNrha1xyQtFMw%3D%3D&'
                                 'pageNo=1&'
                                 'numOfRows=10&'
-                                'startCreateDt=20200902&'
+                                'startCreateDt=20200901&'
                                 'endCreateDt=20200902').text.encode('utf-8')
         xmlObj = bs4.BeautifulSoup(response, 'lxml-xml')
 

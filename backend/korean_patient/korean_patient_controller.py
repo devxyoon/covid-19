@@ -1,0 +1,2 @@
+class KoreanPatientController:
+    pass
