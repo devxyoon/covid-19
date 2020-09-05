@@ -56,11 +56,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .d3 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  text-align: center;
+  margin: 0 auto;
 }
 path {
   fill: #ed8b70;
