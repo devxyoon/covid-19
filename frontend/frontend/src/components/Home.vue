@@ -56,10 +56,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .d3 {
-  margin: 0 auto;
-}
-path {
   fill: #ed8b70;
-  stroke: #de6a6c;
+  stroke: #eeeeee;
+  stroke-width: 3px;
+}
+
+.d3:hover {
+  fill: orange;
 }
 </style>
