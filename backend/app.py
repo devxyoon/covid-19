@@ -1,11 +1,14 @@
 from flask import Flask
 
+from korean_patient.korean_patient_model import KoreanPatientModel
+
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/korean_patient')
 def hello_world():
-    return 'Hello World!'
+    kp = KoreanPatientModel()
+    return kp.data_parsing(kp.api())
 
 
 if __name__ == '__main__':

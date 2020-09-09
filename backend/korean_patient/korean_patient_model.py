@@ -30,8 +30,3 @@ class KoreanPatientModel:
             rowList.append(columnList)
             columnList = []
         return pd.DataFrame(rowList, columns=nameList)
-
-
-if __name__ == "__main__":
-    kp = KoreanPatientModel()
-    print(kp.data_parsing(kp.api()))
