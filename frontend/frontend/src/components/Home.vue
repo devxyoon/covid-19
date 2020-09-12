@@ -62,6 +62,6 @@ export default {
 }
 
 .d3:hover {
-  fill: orange;
+  fill: black;
 }
 </style>
