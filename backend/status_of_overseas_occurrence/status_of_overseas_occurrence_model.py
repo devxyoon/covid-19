@@ -30,8 +30,3 @@ class StatusOfOverseasOccurrenceModel:
             rowList.append(columnList)
             columnList = []
         return pd.DataFrame(rowList, columns=nameList)
-
-
-if __name__ == "__main__":
-    soo = StatusOfOverseasOccurrenceModel()
-    print(soo.data_parsing(soo.api()))
