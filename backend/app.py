@@ -1,7 +1,7 @@
 from flask import Flask
 
-from korean_patient.korean_patient_model import KoreanPatientModel
-from status_of_overseas_occurrence.status_of_overseas_occurrence_model import StatusOfOverseasOccurrenceModel
+from backend.korean_patient.korean_patient_model import KoreanPatientModel
+from backend.status_of_overseas_occurrence.status_of_overseas_occurrence_model import StatusOfOverseasOccurrenceModel
 
 app = Flask(__name__)
 

@@ -5,7 +5,7 @@ from pymongo.cursor import CursorType
 class MongoHandler:
     def __init__(self):
         host = '127.0.0.1'
-        port = '27017'
+        port = 27017
         self._client = MongoClient(host, port)
 
     def insert_item(self, data, db_name=None, collection_name=None):

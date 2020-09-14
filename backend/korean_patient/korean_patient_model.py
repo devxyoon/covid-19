@@ -29,4 +29,4 @@ class KoreanPatientModel:
                 columnList.append(column.text)
             rowList.append(columnList)
             columnList = []
-        return pd.DataFrame(rowList, columns=nameList)
+        return pd.DataFrame(rowList, columns=nameList).to_dict('dict')
