@@ -43,8 +43,8 @@ class DataCollector:
 if __name__ == '__main__':
     scheduler = BackgroundScheduler()
     dataCollector = DataCollector()
-    scheduler.add_job(func=dataCollector.run_process_collect_kp_list, trigger="interval", seconds=30)
-    scheduler.add_job(func=dataCollector.run_process_collect_soo_list, trigger="interval", seconds=30)
+    scheduler.add_job(func=dataCollector.run_process_collect_kp_list, trigger="interval", days=1)
+    scheduler.add_job(func=dataCollector.run_process_collect_soo_list, trigger="interval", days=1)
     scheduler.start()
     while True:
         print("running", datetime.now())

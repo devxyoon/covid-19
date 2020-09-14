@@ -1,17 +1,19 @@
 import bs4
 import requests
 import pandas as pd
+import datetime
 
 
 class StatusOfOverseasOccurrenceModel:
     def api(self):
+        now = datetime.datetime.now().strftime('%Y%m%d')
         response = requests.get('http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson?'
                                 'serviceKey=H9LZk1JqZW5HU96FRw6WtzmxGOwUTa%2Fxn7NXmRLVUbAKwWLtQj18UKtYY'
                                 '%2BHBtu2sT2qGkAXr8l%2Ff1IQbb%2BbQXQ%3D%3D& '
                                 'pageNo=1&'
                                 'numOfRows=10&'
-                                'startCreateDt=20200901&'
-                                'endCreateDt=20200902').text.encode('utf-8')
+                                'startCreateDt='+now+'&'
+                                'endCreateDt='+now).text.encode('utf-8')
         xmlObj = bs4.BeautifulSoup(response, 'lxml-xml')
 
         return xmlObj

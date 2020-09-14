@@ -1,17 +1,19 @@
 import bs4
 import requests
 import pandas as pd
+import datetime
 
 
 class KoreanPatientModel:
 
     def api(self):
+        now = datetime.datetime.now().strftime('%Y%m%d')
         response = requests.get('http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?'
                                 'serviceKey=fzXpNfK7ET%2BeoMdDcL%2FpjXUdnRVz2opP7AVswDFG7w3n2FKDY8%2BjoBEhaCL3oYEsxhXqBU2bymNrha1xyQtFMw%3D%3D&'
                                 'pageNo=1&'
                                 'numOfRows=10&'
-                                'startCreateDt=20200901&'
-                                'endCreateDt=20200902').text.encode('utf-8')
+                                'startCreateDt='+now+'&'
+                                'endCreateDt='+now).text.encode('utf-8')
         xmlObj = bs4.BeautifulSoup(response, 'lxml-xml')
 
         return xmlObj
