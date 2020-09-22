@@ -12,14 +12,28 @@ const state = {
     "Content-Type": "application/json",
   },
   koreaPatientsList: [],
+  foreignPatientsList: [],
+  koreaNewsList: [],
 };
 
 const actions = {
-  async korea_patients({ commit }) {
+  async korea_patients({ commit }, payload) {
+    let commitMenu = "";
+    switch (payload) {
+      case "korean_patient":
+        commitMenu = "KOREA_PATIENTS_COMMIT";
+        break;
+      case "foreign_patient":
+        commitMenu = "FOREIGN_PATIENTS_COMMIT";
+        break;
+      case "korea_news":
+        commitMenu = "KOREA_NEWS_COMMIT";
+        break;
+    }
     axios
-      .get(state.context)
+      .get(`${state.context}/${payload}`)
       .then((response) => {
-        commit("KOREA_PATIENTS_COMMIT", response.data);
+        commit(commitMenu, response.data);
         router.push("/").catch((error) => {
           if (error.name != "NavigationDuplicated") {
             throw error;
@@ -49,10 +63,30 @@ const mutations = {
       });
     });
   },
+  FOREIGN_PATIENTS_COMMIT(state, data) {
+    state.foreignPatientsList = [];
+    data.forEach((item) => {
+      state.foreignPatientsList.push({
+        natDeathCnt: item.netDeathCnt,
+        natDeathRate: item.natDeathRate,
+        natDefCnt: item.natDefCnt,
+        nationNm: item.nationNm,
+      });
+    });
+  },
+  KOREA_NEWS_COMMIT(state, data) {
+    state.koreaNewsList = [];
+    data.forEach((item) => {
+      state.koreaNewsList.push({
+        title: item.title,
+        link: item.link,
+      });
+    });
+  },
 };
 
 export default {
-  name: "koreaPatients",
+  name: "covid19Data",
   namespaced: true,
   state,
   actions,

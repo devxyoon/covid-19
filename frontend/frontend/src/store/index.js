@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import koreaPatients from "./koreaPatients";
+import covid19Data from "./covid19Data";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   modules: {
-    koreaPatients,
+    covid19Data,
   },
 });
